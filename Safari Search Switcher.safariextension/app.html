@@ -1,14 +1,16 @@
 <!DOCTYPE html><script>
-	var defaults = {
-		'duckduckgo': 'https://duckduckgo.com/?q=%s',
-		'yahoo': 'http://search.yahoo.com/search?p=%s'
-	}
-	safari.application.addEventListener('beforeSearch', function (e) {
-		var settings = safari.extension.settings,
-		    url = (settings.engine in defaults ? defaults[settings.engine] : settings.custom).replace('%s', encodeURIComponent(e.query));
-		if (settings.use === 'custom' && url) {
-			e.preventDefault();
-			e.target.url = url;
-		}
-	}, true);
+/*global safari */
+/*jslint sloppy: true */
+var defaults = {
+        'duckduckgo': 'https://duckduckgo.com/?q=%s',
+        'yahoo': 'http://search.yahoo.com/search?p=%s'
+    };
+safari.application.addEventListener('beforeSearch', function (e) {
+    var settings = safari.extension.settings,
+        url = (defaults.hasOwnProperty(settings.engine) ? defaults[settings.engine] : settings.custom).replace('%s', encodeURIComponent(e.query));
+    if (settings.use === 'custom' && url) {
+        e.preventDefault();
+        e.target.url = url;
+    }
+}, true);
 </script>
