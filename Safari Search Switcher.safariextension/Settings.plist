@@ -38,6 +38,7 @@
 		<key>Titles</key>
 		<array>
 			<string>DuckDuckGo</string>
+			<string>DuckDuckGo Next</string>
 			<string>Yahoo!</string>
 			<string>Custom…</string>
 		</array>
@@ -46,6 +47,7 @@
 		<key>Values</key>
 		<array>
 			<string>duckduckgo</string>
+			<string>ddgnext</string>
 			<string>yahoo</string>
 			<string>custom</string>
 		</array>
